@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import * as Linking from 'expo-linking';
-import { PermissionsAndroid, Image } from 'react-native'; 
+// import * as Linking from 'expo-linking';
+import {  Image } from 'react-native'; 
 import { FontAwesome } from '@expo/vector-icons'; 
 const o1 = require('../../../assets/images/emg.png')
 
@@ -15,20 +15,21 @@ const Home = () => {
 
   const handleCall = async (phoneNumber: string) => { 
     try {
-      const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.CALL_PHONE,
-        {
-          title: 'Phone Call Permission',
-          message: 'This app needs access to your phone to make calls.',
-          buttonPositive: 'Allow',
-          buttonNegative: 'Deny',
-        }
-      );
-      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-        Linking.openURL(`tel:${phoneNumber}`);
-      } else {
-        console.warn('Call permission denied');
-      }
+      // const granted = await PermissionsAndroid.request(
+      //   PermissionsAndroid.PERMISSIONS.CALL_PHONE,
+      //   {
+      //     title: 'Phone Call Permission',
+      //     message: 'This app needs access to your phone to make calls.',
+      //     buttonPositive: 'Allow',
+      //     buttonNegative: 'Deny',
+      //   }
+      // );
+      // if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+      //   Linking.openURL(`tel:${phoneNumber}`);
+      // } else {
+      //   console.warn('Call permission denied');
+      // }
+      console.log('Calling', phoneNumber);
     } catch (err) {
       console.warn(err);
     }
